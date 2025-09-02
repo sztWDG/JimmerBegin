@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: JimmerLionhead
+  profiles:
+    active: dev
+
