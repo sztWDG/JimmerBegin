@@ -1,0 +1,21 @@
+{
+  "name": "Root",
+  "children": [
+    {
+      "name": "Food",
+      "children": [
+        {
+          "name": "Drink",
+          "children": [
+            {
+              "name": "Cococala"
+            },
+            {
+              "name": "Fenta"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
