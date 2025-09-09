@@ -1,4 +1,4 @@
-package org.jimmerlionhead.WhyImmutable;
+package org.jimmerlionhead.immutable;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

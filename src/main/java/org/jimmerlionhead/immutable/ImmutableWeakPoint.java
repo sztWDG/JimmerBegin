@@ -1,4 +1,4 @@
-package org.jimmerlionhead.WhyImmutable;
+package org.jimmerlionhead.immutable;
 
 import org.jimmerlionhead.modle.TreeNode;
 import org.jimmerlionhead.modle.TreeNodeDraft;

@@ -1,4 +1,4 @@
-package org.jimmerlionhead.WhyImmutable;
+package org.jimmerlionhead.immutable;
 
 import java.util.List;
 
