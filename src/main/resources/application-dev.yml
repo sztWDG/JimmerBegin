@@ -1,20 +1,20 @@
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3306/jimmer?useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true&characterEncoding=utf8
-    username: root
-    password: root # 替换为你的MySQL密码
-    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:pgsql://localhost:43.138.210.244/jimmer?useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true&characterEncoding=utf8
+    username: user_CPKmph
+    password: password_baQimQ # 替换为你的MySQL密码
+    driver-class-name: org.postgresql.Driver
 
   security:
     user:
       name: user
       password: 127128
-  jpa:
+  jpa: # 在开发阶段，让应用能自动同步Java对象和数据库表结构，并打印出格式化的SQL日志以便调试，同时指定了目标是PostgreSQL数据库。
     hibernate:
       ddl-auto: update # 添加这个可以让Hibernate自动创建/更新表结构
     properties:
       hibernate:
-        dialect: org.hibernate.dialect.MySQL8Dialect
+        dialect: org.hibernate.dialect.PostgreSQLDialect
         format_sql: true
 
 server:
@@ -22,5 +22,29 @@ server:
 
 # Jimmer特定配置
 jimmer:
-  dialect: org.babyfish.jimmer.sql.dialect.MySqlDialect
+  language: java
+  dialect: org.babyfish.jimmer.sql.dialect.PostgresDialect
   show-sql: true # 开发时显示SQL，生产环境建议关闭
+  pretty-sql: true
+  inline-sql-variables: true
+  database-validation-mode: ERROR
+
+  client:
+    ts:
+      path: /ts.zip
+    openapi:
+      path: /openapi.yaml
+      ui-path: /openapi.html
+      properties:
+        info:
+          title: App Service
+          description: App Service API
+          version: 1.0
+        components:
+          security-schemes:
+            AuthorizationHeader:
+              type: apiKey
+              in: header
+              name: Authorization
+        securities:
+          - AuthorizationHeader: [ ]
